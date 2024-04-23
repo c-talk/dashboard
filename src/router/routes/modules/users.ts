@@ -12,6 +12,7 @@ const users: AppRouteModule = {
     orderNo: 10,
     icon: 'ion:people-outline',
     title: t('routes.dashboard.users'),
+    hideChildrenInMenu: true,
   },
   children: [
     {

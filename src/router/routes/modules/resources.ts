@@ -3,21 +3,22 @@ import type { AppRouteModule } from '@/router/types';
 import { LAYOUT } from '@/router/constant';
 import { t } from '@/hooks/web/useI18n';
 
-const users: AppRouteModule = {
+const resources: AppRouteModule = {
   path: '/resources',
-  name: 'Users',
+  name: 'Resources',
   component: LAYOUT,
-  redirect: '/groups/index',
+  redirect: '/resources/index',
   meta: {
     orderNo: 10,
     icon: 'ion:documents-outline',
     title: t('routes.dashboard.resources'),
+    hideChildrenInMenu: true,
   },
   children: [
     {
       path: 'index',
       name: 'ResourcesPage',
-      component: () => import('@/views/management/users/index.vue'),
+      component: () => import('@/views/management/resources/index.vue'),
       meta: {
         title: t('routes.dashboard.resources'),
       },
@@ -25,4 +26,4 @@ const users: AppRouteModule = {
   ],
 };
 
-export default users;
+export default resources;

@@ -1,9 +1,11 @@
 {
-  "dashboard": "控制中心",
   "about": "关于",
-  "users": "用户管理",
+  "accounts": "账户管理",
+  "analysis": "分析页",
+  "dashboard": "控制中心",
   "groups": "群组管理",
   "resources": "资源管理",
-  "workbench": "工作台",
-  "analysis": "分析页"
+  "systems": "系统管理",
+  "users": "用户管理",
+  "workbench": "工作台"
 }

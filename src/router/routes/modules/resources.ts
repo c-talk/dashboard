@@ -17,7 +17,7 @@ const users: AppRouteModule = {
     {
       path: 'index',
       name: 'ResourcesPage',
-      component: () => import('@/views/dashboard/users/index.vue'),
+      component: () => import('@/views/management/users/index.vue'),
       meta: {
         title: t('routes.dashboard.resources'),
       },

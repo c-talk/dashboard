@@ -2,15 +2,25 @@ import { optionsListApi } from '@/api/demo/select';
 import { FormProps, FormSchema, BasicColumn } from '@/components/Table';
 import { VxeFormItemProps, VxeGridPropTypes } from '@/components/VxeTable';
 import { ref } from 'vue';
-import { Input } from 'ant-design-vue';
+import { Avatar, Checkbox, Input } from 'ant-design-vue';
+import { UserOutlined } from '@ant-design/icons-vue';
 
 export function getBasicColumns(): BasicColumn[] {
   return [
+    // {
+    //   title: 'ID',
+    //   dataIndex: 'id',
+    //   fixed: 'left',
+    //   width: 200,
+    // },
     {
-      title: 'ID',
-      dataIndex: 'id',
+      title: '头像',
+      dataIndex: 'avatar',
       fixed: 'left',
-      width: 200,
+      width: 50,
+      customRender: ({ record }) => {
+        return record.avatar ? <Avatar src={record.avatar} /> : <Avatar icon={<UserOutlined />} />;
+      },
     },
     {
       title: '邮箱',
@@ -26,6 +36,9 @@ export function getBasicColumns(): BasicColumn[] {
       title: '邮箱验证',
       dataIndex: 'verify',
       width: 150,
+      customRender: ({ record }) => {
+        return <Checkbox checked={record.verify as boolean} />;
+      },
     },
     {
       title: '创建时间',

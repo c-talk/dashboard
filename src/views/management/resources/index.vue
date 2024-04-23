@@ -1,13 +1,13 @@
 <script lang="ts" setup>
   import { BasicTable, useTable } from '@/components/Table';
-  import { getBasicColumns } from './tableData';
+  import { getBasicColumns, getActionColumn } from './tableData';
   import { PageWrapper } from '@/components/Page';
 
-  import { usersListApi } from '@/api/management/users';
+  import { resourcesListApi } from '@/api/management/resource';
 
   const [registerTable, { reload }] = useTable({
     title: '用户管理',
-    api: usersListApi,
+    api: resourcesListApi,
     afterFetch: (...data) => {
       console.log('afterFetch', data);
     },
@@ -18,6 +18,7 @@
       // totalField: 'data.total',
     },
     columns: getBasicColumns(),
+    actionColumn: getActionColumn(),
     pagination: { pageSize: 10 },
   });
   function handleReloadCurrent() {

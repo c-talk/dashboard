@@ -2,8 +2,8 @@ import { optionsListApi } from '@/api/demo/select';
 import { FormProps, FormSchema, BasicColumn } from '@/components/Table';
 import { VxeFormItemProps, VxeGridPropTypes } from '@/components/VxeTable';
 import { ref } from 'vue';
-import { Avatar, Checkbox, Input } from 'ant-design-vue';
-import { UserOutlined } from '@ant-design/icons-vue';
+import { Button, Input } from 'ant-design-vue';
+import { ResourceType } from '@/api/management/models/resourcesModel';
 
 export function getBasicColumns(): BasicColumn[] {
   return [
@@ -14,45 +14,63 @@ export function getBasicColumns(): BasicColumn[] {
     //   width: 200,
     // },
     {
-      title: '头像',
-      dataIndex: 'avatar',
-      fixed: 'left',
-      width: 50,
-      customRender: ({ record }) => {
-        return record.avatar ? <Avatar src={record.avatar} /> : <Avatar icon={<UserOutlined />} />;
+      title: '资源名称',
+      dataIndex: 'name',
+      width: 150,
+    },
+    {
+      title: '资源类型',
+      dataIndex: 'resource_type',
+      width: 150,
+      customRender: ({ value }) => {
+        switch (value) {
+          case ResourceType.Image:
+            return '图片';
+          case ResourceType.Voice:
+            return '音频';
+          case ResourceType.File:
+            return '文件';
+          default:
+            return '未知';
+        }
       },
     },
     {
-      title: '邮箱',
-      dataIndex: 'email',
+      title: 'MIME',
+      dataIndex: 'mime',
       width: 150,
-    },
-    {
-      title: '昵称',
-      dataIndex: 'nickname',
-      width: 150,
-    },
-    {
-      title: '邮箱验证',
-      dataIndex: 'verify',
-      width: 150,
-      customRender: ({ record }) => {
-        return <Checkbox checked={record.verify as boolean} />;
-      },
     },
     {
       title: '创建时间',
       width: 150,
       sorter: true,
-      dataIndex: 'createTime',
+      dataIndex: 'created_at',
     },
     {
       title: '更新时间',
       width: 150,
       sorter: true,
-      dataIndex: 'updateTime',
+      dataIndex: 'updated_at',
     },
   ];
+}
+
+export function getActionColumn(): BasicColumn {
+  return {
+    title: '操作',
+    dataIndex: 'action',
+    width: 120,
+    customRender: ({ record }) => {
+      return (
+        <div className="flex gap-2">
+          <Button type="primary" onClick={() => console.log(record)}>
+            预览
+          </Button>
+          <Button onClick={() => console.log(record)}>操作</Button>
+        </div>
+      );
+    },
+  };
 }
 
 export function getBasicShortColumns(): BasicColumn[] {

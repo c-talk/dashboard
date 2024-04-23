@@ -2,12 +2,11 @@
   import { BasicTable, useTable } from '@/components/Table';
   import { getBasicColumns } from './tableData';
   import { PageWrapper } from '@/components/Page';
-
-  import { usersListApi } from '@/api/management/users';
+  import { groupsListApi } from '@/api/management/group';
 
   const [registerTable, { reload }] = useTable({
-    title: '用户管理',
-    api: usersListApi,
+    title: '群组管理',
+    api: groupsListApi,
     afterFetch: (...data) => {
       console.log('afterFetch', data);
     },

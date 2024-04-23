@@ -3,7 +3,7 @@ import { BasicPageParams, PageResult } from '@/api/model/baseModel';
 export type GetUsersParams = Partial<BasicPageParams>;
 
 export type User = {
-  id: number;
+  id: string;
   createTime: string;
   updateTime: string;
   nickname: string;

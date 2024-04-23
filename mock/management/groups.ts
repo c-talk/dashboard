@@ -1,10 +1,10 @@
-import { User } from '@/api/management/models/userModel';
+import { Group } from '@/api/management/models/groupModel';
 import { ApiResponse, PageResult } from '@/api/model/baseModel';
 import { type MockMethod } from 'vite-plugin-mock';
 
 export default [
   {
-    url: '/basic-api/management/users',
+    url: '/basic-api/management/groups',
     method: 'get',
     response: () => {
       return {
@@ -13,21 +13,23 @@ export default [
           items: [
             {
               id: '1',
-              nickname: 'vben',
-              avatar: '',
-              email: '',
-              verify: true,
+              name: '测试',
+              head_pic: '',
+              code: '123213',
+              owner: '123',
+              member_list: ['231'],
               createTime: '2024-04-23 18:00:00',
               updateTime: '2024-04-23 18:00:00',
             },
             {
               id: '2',
-              nickname: 'test',
-              avatar: '',
-              email: '',
-              verify: false,
-              createTime: '2024-04-23 18:01:00',
-              updateTime: '2024-04-23 18:01:00',
+              name: '歪比八不',
+              head_pic: '',
+              code: '123213',
+              owner: '123',
+              member_list: ['231'],
+              createTime: '2024-04-23 18:00:00',
+              updateTime: '2024-04-23 18:00:00',
             },
           ],
           total: 2,
@@ -36,7 +38,7 @@ export default [
         },
         message: 'success',
         ts: Date.now(),
-      } as ApiResponse<PageResult<User>>;
+      } as ApiResponse<PageResult<Group>>;
     },
   },
 ] as MockMethod[];

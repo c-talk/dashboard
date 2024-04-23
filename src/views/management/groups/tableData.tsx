@@ -2,7 +2,7 @@ import { optionsListApi } from '@/api/demo/select';
 import { FormProps, FormSchema, BasicColumn } from '@/components/Table';
 import { VxeFormItemProps, VxeGridPropTypes } from '@/components/VxeTable';
 import { ref } from 'vue';
-import { Avatar, Checkbox, Input } from 'ant-design-vue';
+import { Avatar, Input } from 'ant-design-vue';
 import { UserOutlined } from '@ant-design/icons-vue';
 
 export function getBasicColumns(): BasicColumn[] {
@@ -15,30 +15,31 @@ export function getBasicColumns(): BasicColumn[] {
     // },
     {
       title: '头像',
-      dataIndex: 'avatar',
+      dataIndex: 'head_pic',
       fixed: 'left',
       width: 50,
       customRender: ({ record }) => {
-        return record.avatar ? <Avatar src={record.avatar} /> : <Avatar icon={<UserOutlined />} />;
+        return record.head_pic ? (
+          <Avatar src={record.head_pic} />
+        ) : (
+          <Avatar icon={<UserOutlined />} />
+        );
       },
     },
     {
-      title: '邮箱',
-      dataIndex: 'email',
+      title: '群组名',
+      dataIndex: 'name',
       width: 150,
     },
     {
-      title: '昵称',
-      dataIndex: 'nickname',
+      title: '短名称',
+      dataIndex: 'code',
       width: 150,
     },
     {
-      title: '邮箱验证',
-      dataIndex: 'verify',
+      title: '创建者',
+      dataIndex: 'owner',
       width: 150,
-      customRender: ({ record }) => {
-        return <Checkbox checked={record.verify as boolean} />;
-      },
     },
     {
       title: '创建时间',

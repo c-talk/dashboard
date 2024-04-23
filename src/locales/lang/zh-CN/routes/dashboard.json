@@ -1,6 +1,9 @@
 {
-  "dashboard": "Dashboard",
+  "dashboard": "控制中心",
   "about": "关于",
+  "users": "用户管理",
+  "groups": "群组管理",
+  "resources": "资源管理",
   "workbench": "工作台",
   "analysis": "分析页"
 }

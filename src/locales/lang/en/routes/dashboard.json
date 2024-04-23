@@ -1,6 +1,9 @@
 {
   "dashboard": "Dashboard",
   "about": "About",
+  "users": "Users",
+  "groups": "Groups",
+  "resources": "Resources",
   "workbench": "Workbench",
   "analysis": "Analysis"
 }
